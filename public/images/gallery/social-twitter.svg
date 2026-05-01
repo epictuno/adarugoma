@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" viewBox="0 0 600 400">
+  <rect width="600" height="400" fill="#000000"/>
+  <rect width="600" height="400" fill="rgba(255,255,255,0.04)"/>
+  <!-- X / Twitter logo simplified -->
+  <circle cx="300" cy="160" r="72" fill="rgba(255,255,255,0.07)"/>
+  <!-- X shape -->
+  <line x1="262" y1="122" x2="338" y2="198" stroke="rgba(255,255,255,0.9)" stroke-width="14" stroke-linecap="round"/>
+  <line x1="338" y1="122" x2="262" y2="198" stroke="rgba(255,255,255,0.9)" stroke-width="14" stroke-linecap="round"/>
+  <text x="300" y="290" font-family="Arial, sans-serif" font-size="26" font-weight="bold" fill="rgba(255,255,255,0.95)" text-anchor="middle">Twitter / X</text>
+  <text x="300" y="323" font-family="Arial, sans-serif" font-size="16" fill="rgba(255,255,255,0.6)" text-anchor="middle">Síguenos en Twitter</text>
+  <text x="300" y="350" font-family="Arial, sans-serif" font-size="15" fill="rgba(255,255,255,0.45)" text-anchor="middle">@adarugoma</text>
+</svg>

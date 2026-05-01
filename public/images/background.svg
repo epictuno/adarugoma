@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#05091a"/>
+      <stop offset="50%" stop-color="#080d22"/>
+      <stop offset="100%" stop-color="#05091a"/>
+    </linearGradient>
+    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M60 0 L0 0 0 60" fill="none" stroke="rgba(110,140,220,0.07)" stroke-width="0.6"/>
+    </pattern>
+    <pattern id="dots" width="30" height="30" patternUnits="userSpaceOnUse">
+      <circle cx="15" cy="15" r="0.8" fill="rgba(140,170,255,0.09)"/>
+    </pattern>
+    <radialGradient id="glow" cx="50%" cy="45%" r="45%">
+      <stop offset="0%" stop-color="#1a237e" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#bgGrad)"/>
+  <rect width="1920" height="1080" fill="url(#grid)"/>
+  <rect width="1920" height="1080" fill="url(#dots)"/>
+  <rect width="1920" height="1080" fill="url(#glow)"/>
+  <!-- Corner bracket decorations -->
+  <rect x="30" y="30" width="140" height="2" fill="rgba(120,150,230,0.18)"/>
+  <rect x="30" y="30" width="2" height="140" fill="rgba(120,150,230,0.18)"/>
+  <rect x="1750" y="30" width="140" height="2" fill="rgba(120,150,230,0.18)"/>
+  <rect x="1888" y="30" width="2" height="140" fill="rgba(120,150,230,0.18)"/>
+  <rect x="30" y="1048" width="140" height="2" fill="rgba(120,150,230,0.18)"/>
+  <rect x="30" y="908" width="2" height="140" fill="rgba(120,150,230,0.18)"/>
+  <rect x="1750" y="1048" width="140" height="2" fill="rgba(120,150,230,0.18)"/>
+  <rect x="1888" y="908" width="2" height="140" fill="rgba(120,150,230,0.18)"/>
+  <!-- Subtle diagonal lines for depth -->
+  <line x1="0" y1="0" x2="1920" y2="1080" stroke="rgba(100,130,200,0.025)" stroke-width="1"/>
+  <line x1="1920" y1="0" x2="0" y2="1080" stroke="rgba(100,130,200,0.025)" stroke-width="1"/>
+</svg>

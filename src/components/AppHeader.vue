@@ -15,21 +15,33 @@
             </v-btn>
           </template>
           <v-list density="compact" min-width="240">
-            <v-list-item
-              v-for="item in interestedMenu"
-              :key="item.to"
-              :to="item.to"
-              :prepend-icon="item.icon"
-              :title="item.label"
-            />
+              <v-list-item
+                v-for="item in interestedMenu"
+                :key="item.to"
+                :to="item.to"
+                :title="item.label"
+              >
+                <template #prepend>
+                  <v-img v-if="item.image" :src="item.image" alt="" width="28" height="28" contain class="mr-2 rounded" />
+                  <v-icon v-else>{{ item.icon }}</v-icon>
+                </template>
+              </v-list-item>
           </v-list>
         </v-menu>
      </div>
 
       <!-- Center: Inicio -->
       <div class="nav-cell nav-center">
-        <v-btn to="/" variant="text" color="white" size="large" class="font-weight-bold">
-          Adarugoma Kendo Club
+        <v-btn to="/" variant="text" color="white" size="large" class="font-weight-bold d-flex align-center">
+          <v-img
+            src="/images/gallery/logoAdarugoma.png"
+            alt="Logo Adarugoma"
+            width="32"
+            height="32"
+            contain
+            class="mr-3 rounded"
+          />
+          <span>Adarugoma Kendo Club</span>
         </v-btn>
       </div>
 
@@ -42,13 +54,17 @@
             </v-btn>
           </template>
           <v-list density="compact" min-width="240">
-            <v-list-item
-              v-for="item in aboutMenu"
-              :key="item.to"
-              :to="item.to"
-              :prepend-icon="item.icon"
-              :title="item.label"
-            />
+              <v-list-item
+                v-for="item in aboutMenu"
+                :key="item.to"
+                :to="item.to"
+                :title="item.label"
+              >
+                <template #prepend>
+                  <v-img v-if="item.image" :src="item.image" alt="" width="28" height="28" contain class="mr-2 rounded" />
+                  <v-icon v-else>{{ item.icon }}</v-icon>
+                </template>
+              </v-list-item>
           </v-list>
         </v-menu>
       </div>
@@ -66,21 +82,29 @@
       <v-list-item
         v-for="item in interestedMenu"
         :key="item.to"
-        :prepend-icon="item.icon"
         :title="item.label"
         :to="item.to"
         @click="drawer = false"
-      />
+      >
+        <template #prepend>
+          <v-img v-if="item.image" :src="item.image" alt="" width="28" height="28" contain class="mr-2 rounded" />
+          <v-icon v-else>{{ item.icon }}</v-icon>
+        </template>
+      </v-list-item>
       <v-divider class="my-1" />
       <v-list-subheader>Acerca de nosotros</v-list-subheader>
       <v-list-item
         v-for="item in aboutMenu"
         :key="item.to"
-        :prepend-icon="item.icon"
         :title="item.label"
         :to="item.to"
         @click="drawer = false"
-      />
+      >
+        <template #prepend>
+          <v-img v-if="item.image" :src="item.image" alt="" width="28" height="28" contain class="mr-2 rounded" />
+          <v-icon v-else>{{ item.icon }}</v-icon>
+        </template>
+      </v-list-item>
     </v-list>
   </v-navigation-drawer>
 </template>
@@ -88,15 +112,17 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
+type MenuItem = { to: string; label: string; icon?: string; image?: string }
+
 const drawer = ref(false)
 
-const interestedMenu = [
-  { to: '/entrenamientos', label: 'Entrenamientos y horarios', icon: 'mdi-calendar-clock' },
+const interestedMenu: MenuItem[] = [
+  { to: '/entrenamientos', label: 'Entrenamientos y horarios', icon: 'mdi-calendar-clock', image: '/images/gallery/iconoKendo.jpeg' },
   { to: '/noticias', label: 'Noticias y Eventos', icon: 'mdi-newspaper' },
-  { to: '/que-es-el-kendo', label: '¿Qué es el Kendo?', icon: 'mdi-sword' },
+  { to: '/que-es-el-kendo', label: '¿Qué es el Kendo?', icon: 'mdi-sword', image: '/images/gallery/espadaMadera.jpeg' },
 ]
 
-const aboutMenu = [
+const aboutMenu: MenuItem[] = [
   { to: '/sobre-nosotros', label: 'Sobre nosotros y historia', icon: 'mdi-account-group' },
   { to: '/instructores', label: 'Instructores', icon: 'mdi-account-star' },
   { to: '/galeria', label: 'Galería y Multimedia', icon: 'mdi-image-multiple' },

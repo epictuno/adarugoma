@@ -4,7 +4,7 @@
       <v-col cols="12" md="10">
         <!-- Page Header -->
         <div class="text-center mb-10">
-          <v-icon color="primary" size="64" class="mb-4">mdi-calendar-clock</v-icon>
+          <v-img src="/images/gallery/iconoKendo.jpeg" alt="Adarugoma" width="64" height="64" contain class="mb-4 mx-auto" />
           <h1 class="text-h3 font-weight-bold text-primary mb-3">Entrenamientos</h1>
           <p class="text-body-1 text-grey-darken-1">
             Consulta nuestros horarios y modalidades de entrenamiento

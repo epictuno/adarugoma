@@ -83,7 +83,7 @@ const dialog = ref(false)
 const selected = ref<GalleryItem | null>(null)
 
 const galleryItems: GalleryItem[] = [
-  {
+ {
     id: 1,
     title: 'Entrenamiento matutino de sábado',
     category: 'Entrenamientos',
@@ -128,6 +128,7 @@ const galleryItems: GalleryItem[] = [
     fallbackColor: 'orange-darken-2',
     description: 'Varios miembros del club superaron con éxito sus exámenes de ascenso de grado.',
   },
+  /*
   {
     id: 6,
     title: 'Entrenamiento de Kata',
@@ -190,7 +191,7 @@ const galleryItems: GalleryItem[] = [
     image: '/images/gallery/social-twitter.svg',
     fallbackColor: 'grey-darken-4',
     description: 'Síguenos en Twitter/X para noticias y actualizaciones del club en tiempo real.',
-  },
+  },*/
 ]
 
 const filteredItems = computed(() =>

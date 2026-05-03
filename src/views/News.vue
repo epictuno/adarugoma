@@ -16,12 +16,8 @@
         <v-card class="mb-8" elevation="3" rounded="lg">
           <v-row no-gutters>
             <v-col cols="12" md="5">
-              <v-sheet
-                color="primary"
-                class="d-flex align-center justify-center"
-                :height="$vuetify.display.mdAndUp ? '100%' : '200px'"
-                min-height="200"
-              >
+              <v-sheet color="primary" class="d-flex align-center justify-center"
+                :height="$vuetify.display.mdAndUp ? '100%' : '200px'" min-height="200">
                 <v-icon size="80" color="white" opacity="0.6">mdi-newspaper-variant-outline</v-icon>
               </v-sheet>
             </v-col>
@@ -53,19 +49,9 @@
 
         <!-- News Grid -->
         <v-row>
-          <v-col
-            v-for="news in newsList"
-            :key="news.id"
-            cols="12"
-            sm="6"
-            md="4"
-          >
+          <v-col v-for="news in newsList" :key="news.id" cols="12" sm="6" md="4">
             <v-card class="h-100" elevation="2" rounded="lg">
-              <v-sheet
-                :color="news.color"
-                class="d-flex align-center justify-center"
-                height="160"
-              >
+              <v-sheet :color="news.color" class="d-flex align-center justify-center" height="160">
                 <v-icon size="56" color="white" opacity="0.6">{{ news.icon }}</v-icon>
               </v-sheet>
               <v-card-item>
@@ -85,22 +71,30 @@
           </v-col>
         </v-row>
 
-        <!-- Upcoming Events -->
-        <h2 class="text-h5 font-weight-bold text-primary mt-12 mb-6">Próximos Eventos</h2>
-        <v-timeline side="end" density="compact">
-          <v-timeline-item
-            v-for="event in upcomingEvents"
-            :key="event.id"
-            :dot-color="event.color"
-            size="small"
-          >
-            <v-card elevation="1" rounded="lg">
-              <v-card-title class="text-body-1 font-weight-bold">{{ event.title }}</v-card-title>
-              <v-card-subtitle>{{ event.date }} · {{ event.place }}</v-card-subtitle>
-              <v-card-text class="text-body-2">{{ event.description }}</v-card-text>
-            </v-card>
-          </v-timeline-item>
-        </v-timeline>
+        <!-- Upcoming Events (this month) -->
+        <template v-if="monthEvents.length > 0">
+          <h2 class="text-h5 font-weight-bold text-primary mt-12 mb-6">Eventos este mes</h2>
+          <div class="d-flex align-start" style="overflow-x: auto;">
+            <template v-for="(event, index) in monthEvents" :key="event.id">
+              <!-- Event card -->
+              <div class="d-flex flex-column align-center" style="min-width: 180px; max-width: 220px;">
+                <!-- Dot + date -->
+                <div class="rounded-circle d-flex align-center justify-center mb-2"
+                  :style="`width:44px;height:44px;background-color:rgb(var(--v-theme-${event.color}));flex-shrink:0`">
+                  <v-icon color="white" size="22">mdi-calendar-check</v-icon>
+                </div>
+                <span class="text-caption font-weight-bold text-primary mb-1">{{ event.displayDate }}</span>
+                <v-card elevation="2" rounded="lg" class="w-100 text-center pa-3">
+                  <div class="text-body-2 font-weight-bold mb-1">{{ event.title }}</div>
+                  <div class="text-caption text-grey">{{ event.place }}</div>
+                </v-card>
+              </div>
+              <!-- Connector line (not after last) -->
+              <div v-if="index < monthEvents.length - 1"
+                style="flex: 1; height: 2px; background: #1A237E; min-width: 24px; margin-top: 21px; opacity: 0.3;" />
+            </template>
+          </div>
+        </template>
       </v-col>
     </v-row>
   </v-container>
@@ -171,9 +165,26 @@ const newsList = [
 ]
 
 const upcomingEvents = [
-  { id: 1, title: 'Seminario de Kata', date: '20 abril 2024', place: 'Dojo Adarugoma', description: 'Jornada de 8 horas dedicada a los Nihon Kendo Kata.', color: 'primary' },
-  { id: 2, title: 'Campeonato Nacional', date: '11 mayo 2024', place: 'Madrid', description: 'Varios miembros representarán al club en el campeonato nacional.', color: 'red' },
-  { id: 3, title: 'Exámenes de grado', date: '8 junio 2024', place: 'Federación Regional', description: 'Convocatoria de exámenes de ascenso para los miembros que cumplan los requisitos.', color: 'orange' },
-  { id: 4, title: 'Campamento de verano', date: 'Agosto 2024', place: 'Centro deportivo Serra de Tramuntana', description: 'Campamento intensivo de kendo de 5 días para todos los niveles.', color: 'green' },
+  { id: 1, title: 'Seminario de Kata', isoDate: '2026-05-03', place: 'Dojo Adarugoma', description: 'Jornada de 8 horas dedicada a los Nihon Kendo Kata.', color: 'primary' },
+  { id: 2, title: 'Campeonato Nacional', isoDate: '2026-05-07', place: 'Madrid', description: 'Varios miembros representarán al club en el campeonato nacional.', color: 'red' },
+  { id: 3, title: 'Exámenes de grado', isoDate: '2026-06-08', place: 'Federación Regional', description: 'Convocatoria de exámenes de ascenso para los miembros que cumplan los requisitos.', color: 'orange' },
+  { id: 4, title: 'Campamento de verano', isoDate: '2026-08-15', place: 'Centro deportivo Serra de Tramuntana', description: 'Campamento intensivo de kendo de 5 días para todos los niveles.', color: 'green' },
 ]
+
+const today = new Date()
+today.setHours(0, 0, 0, 0)
+const startOfMonth = new Date(today.getFullYear(), today.getMonth(), 1)
+const endOfMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0)
+endOfMonth.setHours(23, 59, 59, 999)
+
+const monthEvents = upcomingEvents
+  .filter(e => {
+    const d = new Date(e.isoDate)
+    return d >= startOfMonth && d <= endOfMonth
+  })
+  .sort((a, b) => a.isoDate.localeCompare(b.isoDate))
+  .map(e => ({
+    ...e,
+    displayDate: new Date(e.isoDate).toLocaleDateString('es-ES', { weekday: 'short', day: 'numeric', month: 'short' }),
+  }))
 </script>

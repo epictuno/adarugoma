@@ -14,44 +14,20 @@
 
         <!-- Filter Chips -->
         <div class="d-flex justify-center flex-wrap gap-2 mb-8">
-          <v-chip
-            v-for="cat in categories"
-            :key="cat"
-            :color="selectedCategory === cat ? 'primary' : 'default'"
-            :variant="selectedCategory === cat ? 'elevated' : 'tonal'"
-            class="cursor-pointer"
-            @click="selectedCategory = cat"
-          >
+          <v-chip v-for="cat in categories" :key="cat" :color="selectedCategory === cat ? 'primary' : 'default'"
+            :variant="selectedCategory === cat ? 'elevated' : 'tonal'" class="cursor-pointer"
+            @click="selectedCategory = cat">
             {{ cat }}
           </v-chip>
         </div>
 
         <!-- Gallery Grid -->
         <v-row>
-          <v-col
-            v-for="item in filteredItems"
-            :key="item.id"
-            cols="12"
-            sm="6"
-            md="4"
-          >
-            <v-card
-              class="cursor-pointer"
-              elevation="2"
-              rounded="lg"
-              @click="openLightbox(item)"
-            >
-              <v-img
-                :src="item.image"
-                height="200"
-                cover
-              >
+          <v-col v-for="item in filteredItems" :key="item.id" cols="12" sm="6" md="4">
+            <v-card class="cursor-pointer" elevation="2" rounded="lg" @click="openLightbox(item)">
+              <v-img :src="item.image" height="200" cover>
                 <template #error>
-                  <v-sheet
-                    :color="item.fallbackColor"
-                    class="d-flex align-center justify-center"
-                    height="200"
-                  >
+                  <v-sheet :color="item.fallbackColor" class="d-flex align-center justify-center" height="200">
                     <v-icon size="64" color="white" opacity="0.5">mdi-image</v-icon>
                   </v-sheet>
                 </template>
@@ -67,17 +43,9 @@
         <!-- Lightbox Dialog -->
         <v-dialog v-model="dialog" max-width="700">
           <v-card v-if="selected" rounded="lg">
-            <v-img
-              :src="selected.image"
-              height="380"
-              cover
-            >
+            <v-img :src="selected.image" height="380" cover>
               <template #error>
-                <v-sheet
-                  :color="selected.fallbackColor"
-                  class="d-flex align-center justify-center"
-                  height="380"
-                >
+                <v-sheet :color="selected.fallbackColor" class="d-flex align-center justify-center" height="380">
                   <v-icon size="96" color="white" opacity="0.5">mdi-image</v-icon>
                 </v-sheet>
               </template>

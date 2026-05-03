@@ -24,88 +24,37 @@
                 <v-form ref="formRef" v-model="valid" @submit.prevent="submitForm">
                   <v-row>
                     <v-col cols="12" sm="6">
-                      <v-text-field
-                        v-model="form.name"
-                        label="Nombre *"
-                        variant="outlined"
-                        :rules="[rules.required]"
-                        prepend-inner-icon="mdi-account"
-                        density="comfortable"
-                      />
+                      <v-text-field v-model="form.name" label="Nombre *" variant="outlined" :rules="[rules.required]"
+                        prepend-inner-icon="mdi-account" density="comfortable" />
                     </v-col>
                     <v-col cols="12" sm="6">
-                      <v-text-field
-                        v-model="form.surname"
-                        label="Apellidos"
-                        variant="outlined"
-                        prepend-inner-icon="mdi-account-outline"
-                        density="comfortable"
-                      />
+                      <v-text-field v-model="form.surname" label="Apellidos" variant="outlined"
+                        prepend-inner-icon="mdi-account-outline" density="comfortable" />
                     </v-col>
                     <v-col cols="12">
-                      <v-text-field
-                        v-model="form.email"
-                        label="Correo electrónico *"
-                        type="email"
-                        variant="outlined"
-                        :rules="[rules.required, rules.email]"
-                        prepend-inner-icon="mdi-email"
-                        density="comfortable"
-                      />
+                      <v-text-field v-model="form.email" label="Correo electrónico *" type="email" variant="outlined"
+                        :rules="[rules.required, rules.email]" prepend-inner-icon="mdi-email" density="comfortable" />
                     </v-col>
                     <v-col cols="12">
-                      <v-text-field
-                        v-model="form.phone"
-                        label="Teléfono (opcional)"
-                        variant="outlined"
-                        prepend-inner-icon="mdi-phone"
-                        density="comfortable"
-                      />
+                      <v-text-field v-model="form.phone" label="Teléfono (opcional)" variant="outlined"
+                        prepend-inner-icon="mdi-phone" density="comfortable" />
                     </v-col>
                     <v-col cols="12">
-                      <v-select
-                        v-model="form.subject"
-                        label="Asunto *"
-                        :items="subjects"
-                        variant="outlined"
-                        :rules="[rules.required]"
-                        prepend-inner-icon="mdi-tag"
-                        density="comfortable"
-                      />
+                      <v-select v-model="form.subject" label="Asunto *" :items="subjects" variant="outlined"
+                        :rules="[rules.required]" prepend-inner-icon="mdi-tag" density="comfortable" />
                     </v-col>
                     <v-col cols="12">
-                      <v-textarea
-                        v-model="form.message"
-                        label="Mensaje *"
-                        variant="outlined"
-                        :rules="[rules.required, rules.minLength]"
-                        prepend-inner-icon="mdi-message-text"
-                        rows="5"
-                        density="comfortable"
-                        counter="500"
-                        maxlength="500"
-                      />
+                      <v-textarea v-model="form.message" label="Mensaje *" variant="outlined"
+                        :rules="[rules.required, rules.minLength]" prepend-inner-icon="mdi-message-text" rows="5"
+                        density="comfortable" counter="500" maxlength="500" />
                     </v-col>
                     <v-col cols="12">
-                      <v-checkbox
-                        v-model="form.privacy"
-                        :rules="[rules.requiredCheck]"
-                        density="compact"
-                        label="He leído y acepto la política de privacidad *"
-                        color="primary"
-                      />
+                      <v-checkbox v-model="form.privacy" :rules="[rules.requiredCheck]" density="compact"
+                        label="He leído y acepto la política de privacidad *" color="primary" />
                     </v-col>
                   </v-row>
-                  <v-btn
-                    type="submit"
-                    color="primary"
-                    variant="elevated"
-                    size="large"
-                    :loading="sending"
-                    :disabled="!valid"
-                    block
-                    class="mt-2"
-                  >
+                  <v-btn type="submit" color="primary" variant="elevated" size="large" :loading="sending"
+                    :disabled="!valid" block class="mt-2">
                     <v-icon class="mr-2">mdi-send</v-icon>
                     Enviar mensaje
                   </v-btn>
@@ -121,30 +70,9 @@
                 Información de contacto
               </v-card-title>
               <v-list>
-                <v-list-item
-                  v-for="contact in contactInfo"
-                  :key="contact.label"
-                  :prepend-icon="contact.icon"
-                  :title="contact.label"
-                  :subtitle="contact.value"
-                />
+                <v-list-item v-for="contact in contactInfo" :key="contact.label" :prepend-icon="contact.icon"
+                  :title="contact.label" :subtitle="contact.value" />
               </v-list>
-            </v-card>
-
-            <v-card elevation="2" rounded="lg">
-              <v-card-title class="pa-4 text-h6 font-weight-bold text-primary">
-                Horario de atención
-              </v-card-title>
-              <v-card-text>
-                <div
-                  v-for="h in officeHours"
-                  :key="h.day"
-                  class="d-flex justify-space-between mb-2"
-                >
-                  <span class="font-weight-medium">{{ h.day }}</span>
-                  <span class="text-grey-darken-1">{{ h.hours }}</span>
-                </div>
-              </v-card-text>
             </v-card>
           </v-col>
         </v-row>
@@ -198,18 +126,10 @@ const rules = {
 }
 
 const contactInfo = [
-  { icon: 'mdi-map-marker', label: 'Dirección', value: 'Polideportivo Municipal, Pabellón B, Sala Tatami' },
-  { icon: 'mdi-phone', label: 'Teléfono', value: '+34 600 000 000' },
-  { icon: 'mdi-email', label: 'Correo electrónico', value: 'info@adarugoma.es' },
+  { icon: 'mdi-map-marker', label: 'Dirección', value: 'Centro comercial de Tafira' },
+  { icon: 'mdi-phone', label: 'Teléfono', value: '+34 680 954 240' },
+  { icon: 'mdi-email', label: 'Correo electrónico', value: 'adarugomakendoclub@gmail.com' },
 ]
-
-const officeHours = [
-  { day: 'Lunes', hours: '18:00 – 21:00' },
-  { day: 'Miércoles', hours: '18:00 – 21:00' },
-  { day: 'Viernes', hours: '17:00 – 21:00' },
-  { day: 'Sábado', hours: '10:00 – 13:00' },
-]
-
 async function submitForm() {
   const { valid: isValid } = await formRef.value?.validate()
   if (!isValid) return

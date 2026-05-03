@@ -24,12 +24,12 @@
             />
           </v-list>
         </v-menu>
-      </div>
+     </div>
 
       <!-- Center: Inicio -->
       <div class="nav-cell nav-center">
         <v-btn to="/" variant="text" color="white" size="large" class="font-weight-bold">
-          Inicio
+          Adarugoma Kendo Club
         </v-btn>
       </div>
 

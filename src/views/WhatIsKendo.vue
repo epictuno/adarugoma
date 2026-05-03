@@ -6,9 +6,6 @@
         <div class="text-center mb-10">
           <v-icon color="primary" size="64" class="mb-4">mdi-sword</v-icon>
           <h1 class="text-h3 font-weight-bold text-primary mb-3">¿Qué es el Kendo?</h1>
-          <p class="text-body-1 text-grey-darken-1">
-            Descubre la historia, filosofía y práctica del arte marcial japonés del camino de la espada
-          </p>
           <v-divider class="mx-auto mt-4" style="max-width: 80px; border-color: #1A237E; border-width: 3px;" />
         </div>
 
@@ -19,55 +16,53 @@
             <div>
               <div class="text-h5 font-weight-bold text-white mb-1">剣道 · Kendō</div>
               <div class="text-body-1 text-blue-lighten-3">
-                "El camino de la espada" — Arte marcial japonés derivado de las técnicas de esgrima tradicional del samurái
+                "El camino de la espada" — Arte marcial japonés derivado de las técnicas de esgrima tradicional del
+                samurái
               </div>
             </div>
           </v-sheet>
           <v-card-text class="pa-6 text-body-1">
             <p class="mb-4">
-              El <strong>Kendo</strong> (剣道, literalmente "camino de la espada") es una disciplina marcial
-              moderna japonesa que deriva de las técnicas de esgrima (<em>kenjutsu</em>) empleadas por los
-              samuráis durante siglos. A través de la práctica del Kendo, los practicantes no solo aprenden
-              a manejar el <em>shinai</em> (espada de bambú) con destreza, sino que cultivan su carácter,
-              su mente y su espíritu.
+              El kendo es un arte marcial japonés que tiene sus raíces en las antiguas técnicas de
+              combate samuráis. Su nombre significa “el camino de la espada”, y no sólo se centra en
+              la técnica, sino también en el desarrollo personal.
+              Se practica utilizando una armadura protectora (bogu) y una espada de bambú (shinai),
+              lo que permite realizar combates de forma segura mientras se entrenan reflejos,
+              precisión y control.
             </p>
-            <p>
-              En Japón, el Kendo no se considera simplemente un deporte, sino una vía de perfeccionamiento
-              personal (<em>do</em>). El objetivo del Kendo, según la <em>All Japan Kendo Federation</em>,
-              es "moldear la mente y el cuerpo, cultivar un espíritu vigoroso, y a través de un entrenamiento
-              correcto y riguroso, esforzarse por la mejora en el arte del Kendo, sostener la cortesía y
-              el honor, asociarse con los demás con sinceridad, y perseguir siempre el cultivo de uno mismo".
+            <p class="mb-4">
+              Más allá del aspecto físico, el kendo busca formar el carácter del practicante,
+              fomentando valores como el respeto, la disciplina, la concentración y el espíritu de
+              superación. Cada entrenamiento es una oportunidad para mejorar tanto el cuerpo como
+              la mente.
+            </p>
+            <p class="mb-4">
+              En el kendo no sólo se aprende a combatir, sino también a crecer como persona,
+              siguiendo principios tradicionales japoneses que siguen vigentes hoy en día.
             </p>
           </v-card-text>
         </v-card>
-
-        <!-- History Timeline -->
-        <h2 class="text-h5 font-weight-bold text-primary mb-6">Historia del Kendo</h2>
-        <v-timeline side="end" density="compact" class="mb-10">
-          <v-timeline-item
-            v-for="event in history"
-            :key="event.period"
-            :dot-color="event.color"
-            size="small"
-          >
-            <v-card elevation="1" rounded="lg">
-              <v-card-subtitle class="font-weight-bold text-primary pt-3">{{ event.period }}</v-card-subtitle>
-              <v-card-title class="text-body-1 font-weight-bold pt-1">{{ event.title }}</v-card-title>
-              <v-card-text class="text-body-2">{{ event.text }}</v-card-text>
-            </v-card>
-          </v-timeline-item>
-        </v-timeline>
+        <v-card class="mb-8" elevation="2" rounded="lg">
+          <v-card-title class="text-h6 font-weight-bold text-primary">
+          </v-card-title>
+          <v-card-text>
+            <div class="video-wrapper">
+              <iframe
+                src="https://www.youtube.com/embed/PdK18KyizGg?start=89"
+                title="Video de la All Japan Kendo Federation"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </v-card-text>
+        </v-card>
 
         <!-- Equipment -->
-        <h2 class="text-h5 font-weight-bold text-primary mb-6">El Equipo (Bogu y Shinai)</h2>
+        <h2 class="text-h5 font-weight-bold text-primary mb-6">El Equipamiento</h2>
         <v-row class="mb-10">
-          <v-col
-            v-for="equip in equipment"
-            :key="equip.name"
-            cols="12"
-            sm="6"
-            md="3"
-          >
+          <v-col v-for="equip in equipment" :key="equip.name" cols="12" sm="6" md="3">
             <v-card class="text-center pa-4 h-100" elevation="2" rounded="lg">
               <v-icon :color="equip.color" size="52" class="mb-3">{{ equip.icon }}</v-icon>
               <v-card-title class="justify-center text-body-1 font-weight-bold pa-0 mb-1">
@@ -101,21 +96,6 @@
             </tbody>
           </v-table>
         </v-card>
-
-        <!-- CTA -->
-        <v-sheet color="primary" rounded="lg" class="pa-8 text-center text-white">
-          <v-icon size="48" color="white" class="mb-4">mdi-sword-cross</v-icon>
-          <h2 class="text-h5 font-weight-bold mb-3">¿Listo para empezar tu camino en el Kendo?</h2>
-          <p class="text-body-1 text-blue-lighten-4 mb-4">
-            Ven a conocernos. La primera clase es gratuita y sin compromiso.
-          </p>
-          <div class="d-flex justify-center gap-4 flex-wrap">
-            <v-btn to="/entrenamientos" color="white" variant="elevated" class="text-primary font-weight-bold">
-              Ver horarios
-            </v-btn>
-            <v-btn to="/contacto" variant="outlined" color="white" class="ml-2">Contactar</v-btn>
-          </div>
-        </v-sheet>
       </v-col>
     </v-row>
   </v-container>
@@ -133,16 +113,36 @@ const history = [
 
 const equipment = [
   { icon: 'mdi-sword', name: 'Shinai', japanese: '竹刀', desc: 'Espada de bambú utilizada para el entrenamiento y la competición de forma segura.', color: 'brown-darken-1' },
-  { icon: 'mdi-hard-hat', name: 'Men', japanese: '面', desc: 'Casco de protección que cubre la cabeza, la cara y la garganta del kendoka.', color: 'primary' },
-  { icon: 'mdi-shield', name: 'Dō', japanese: '胴', desc: 'Protector del torso que cubre el pecho y el abdomen.', color: 'secondary' },
+  { icon: 'mdi-hard-hat', name: 'Men', japanese: '面', desc: 'Casco de protección que cubre la cabeza, la cara y la garganta del kendoka.', color: 'blue-darken-4' },
+  { icon: 'mdi-shield', name: 'Dō', japanese: '胴', desc: 'Protector del torso que cubre el pecho y el abdomen.', color: 'blue-darken-4' },
   { icon: 'mdi-hand-back-right', name: 'Kote', japanese: '小手', desc: 'Guanteletes acolchados que protegen las manos y las muñecas.', color: 'green-darken-2' },
 ]
 
 const grades = [
-  { rank: '6.º Kyū – 1.º Kyū', name: 'Kyū (級)', desc: 'Grados de aprendiz. Se otorgan durante los primeros años de práctica.', color: 'green' },
-  { rank: '1.º Dan – 3.º Dan', name: 'Shodan a Sandan', desc: 'Grados de iniciado. Demuestran dominio de los fundamentos técnicos.', color: 'blue' },
-  { rank: '4.º Dan – 6.º Dan', name: 'Yondan a Rokudan', desc: 'Grados avanzados. Reflejan experiencia profunda y madurez técnica y espiritual.', color: 'primary' },
-  { rank: '7.º Dan – 8.º Dan', name: 'Nanadan a Hachidan', desc: 'Los grados más altos de dan. Reconocimiento excepcional de maestría técnica y de carácter.', color: 'red' },
-  { rank: 'Renshi / Kyoshi / Hanshi', name: 'Títulos honoríficos', desc: 'Títulos que acompañan a los altos dan y reconocen la capacidad docente y de liderazgo del kenshi.', color: 'amber-darken-2' },
+  { rank: '6.º Kyū – 1.º Kyū', name: 'Kyū (級)', desc: 'Grados de aprendiz. Se otorgan durante los primeros años de práctica.', color: 'gray' },
+  { rank: '1.º Dan – 3.º Dan', name: 'Shodan a Sandan', desc: 'Grados de iniciado. Demuestran dominio de los fundamentos técnicos.', color: 'green' },
+  { rank: '4.º Dan – 6.º Dan', name: 'Yondan a Rokudan', desc: 'Grados avanzados. Reflejan experiencia profunda y madurez técnica y espiritual.', color: 'blue' },
+  { rank: '7.º Dan – 8.º Dan', name: 'Nanadan a Hachidan', desc: 'Los grados más altos de dan. Reconocimiento excepcional de maestría técnica y de carácter.', color: 'blue' },
+  { rank: 'Renshi / Kyoshi / Hanshi', name: 'Títulos honoríficos', desc: 'Títulos que acompañan a los altos dan y reconocen la capacidad docente y de liderazgo del kendoka.', color: 'amber-darken-2' },
 ]
 </script>
+
+<style scoped>
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+</style>

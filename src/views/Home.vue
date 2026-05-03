@@ -1,11 +1,7 @@
 <template>
   <!-- Hero Section -->
   <v-container fluid class="pa-0">
-    <v-sheet
-      color="primary"
-      class="d-flex align-center justify-center"
-      min-height="520"
-    >
+    <v-sheet color="primary" class="d-flex align-center justify-center" min-height="520">
       <v-container>
         <v-row align="center" justify="center">
           <v-col cols="12" md="8" class="text-center text-white">
@@ -17,22 +13,11 @@
               Club de Kendo comprometido con la tradición, el espíritu marcial y la superación personal
             </p>
             <div class="d-flex justify-center gap-4 flex-wrap">
-              <v-btn
-                to="/que-es-el-kendo"
-                color="white"
-                variant="elevated"
-                size="large"
-                class="text-primary font-weight-bold"
-              >
+              <v-btn to="/que-es-el-kendo" color="white" variant="elevated" size="large"
+                class="text-primary font-weight-bold">
                 ¿Qué es el Kendo?
               </v-btn>
-              <v-btn
-                to="/contacto"
-                variant="outlined"
-                color="white"
-                size="large"
-                class="ml-2"
-              >
+              <v-btn to="/contacto" variant="outlined" color="white" size="large" class="ml-2">
                 Únete a nosotros
               </v-btn>
             </div>
@@ -51,13 +36,7 @@
       </v-col>
     </v-row>
     <v-row>
-      <v-col
-        v-for="feature in features"
-        :key="feature.title"
-        cols="12"
-        sm="6"
-        md="3"
-      >
+      <v-col v-for="feature in features" :key="feature.title" cols="12" sm="6" md="3">
         <v-card class="text-center pa-6 h-100" elevation="2" rounded="lg">
           <v-icon :color="feature.color" size="56" class="mb-4">{{ feature.icon }}</v-icon>
           <v-card-title class="text-h6 font-weight-bold justify-center pa-0 mb-2">
@@ -77,7 +56,7 @@
       <v-row align="center" justify="center">
         <v-col cols="12" md="7" class="text-center">
           <h2 class="text-h4 font-weight-bold text-primary mb-4">
-            ¿Listo para empezar tu camino?
+            ¿Listo para empezar tu camino? con la vieja
           </h2>
           <p class="text-body-1 text-grey-darken-2 mb-6">
             Nuestras clases están abiertas para todos los niveles. Ven a conocernos y descubre

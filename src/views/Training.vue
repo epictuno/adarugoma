@@ -14,13 +14,8 @@
 
         <!-- Info Cards -->
         <v-row class="mb-8">
-          <v-col
-            v-for="info in infoCards"
-            :key="info.title"
-            cols="12"
-            sm="4"
-          >
-            <v-card class="text-center pa-4" :color="info.color" theme="dark" elevation="3" rounded="lg">
+          <v-col v-for="info in infoCards" :key="info.title" cols="12" sm="4">
+            <v-card class="text-center pa-4 h-100" :color="info.color" theme="dark" elevation="3" rounded="lg">
               <v-icon size="40" class="mb-2">{{ info.icon }}</v-icon>
               <v-card-title class="justify-center text-h6">{{ info.title }}</v-card-title>
               <v-card-text>{{ info.text }}</v-card-text>
@@ -40,8 +35,6 @@
                 <th class="text-left font-weight-bold">Día</th>
                 <th class="text-left font-weight-bold">Hora</th>
                 <th class="text-left font-weight-bold">Grupo</th>
-                <th class="text-left font-weight-bold">Nivel</th>
-                <th class="text-left font-weight-bold">Instructor</th>
               </tr>
             </thead>
             <tbody>
@@ -53,8 +46,6 @@
                     {{ session.group }}
                   </v-chip>
                 </td>
-                <td>{{ session.level }}</td>
-                <td>{{ session.instructor }}</td>
               </tr>
             </tbody>
           </v-table>
@@ -68,13 +59,7 @@
           </v-card-title>
           <v-card-text class="pa-6">
             <v-row>
-              <v-col
-                v-for="item in whatToBring"
-                :key="item.title"
-                cols="12"
-                sm="6"
-                md="4"
-              >
+              <v-col v-for="item in whatToBring" :key="item.title" cols="12" sm="6" md="4">
                 <div class="d-flex align-center mb-3">
                   <v-icon color="primary" class="mr-2">{{ item.icon }}</v-icon>
                   <div>
@@ -93,19 +78,16 @@
 
 <script setup lang="ts">
 const infoCards = [
-  { icon: 'mdi-map-marker', title: 'Ubicación', text: 'Polideportivo Municipal, Sala Tatami – Pabellón B', color: 'primary' },
-  { icon: 'mdi-currency-eur', title: 'Cuota mensual', text: '30€/mes adultos · 20€/mes menores', color: 'secondary' },
-  { icon: 'mdi-phone', title: 'Información', text: 'Contacta con nosotros para tu primera clase gratuita', color: 'accent' },
+  { icon: 'mdi-map-marker', title: 'Ubicación', text: 'Centro comercial de Tafira', color: 'primary' },
+  { icon: 'mdi-currency-eur', title: 'Cuota mensual', text: '45€/mes', color: 'secondary' },
+  { icon: 'mdi-phone', title: 'Información', text: 'Contactanos para tu primera clase gratuita tras un test.', color: 'accent' },
 ]
 
 const schedule = [
-  { id: 1, day: 'Lunes', time: '18:00 – 19:30', group: 'Iniciación', level: 'Principiantes', instructor: 'Sensei Yamamoto', color: 'green' },
-  { id: 2, day: 'Lunes', time: '19:30 – 21:00', group: 'Avanzado', level: 'Intermedio / Avanzado', instructor: 'Sensei Yamamoto', color: 'blue' },
-  { id: 3, day: 'Miércoles', time: '18:00 – 19:30', group: 'Iniciación', level: 'Principiantes', instructor: 'Sensei Rodríguez', color: 'green' },
-  { id: 4, day: 'Miércoles', time: '19:30 – 21:00', group: 'Competición', level: 'Avanzado', instructor: 'Sensei Yamamoto', color: 'red' },
-  { id: 5, day: 'Viernes', time: '18:00 – 19:00', group: 'Juvenil', level: 'Menores 8-16 años', instructor: 'Sensei Rodríguez', color: 'orange' },
-  { id: 6, day: 'Viernes', time: '19:00 – 21:00', group: 'Libre', level: 'Todos los niveles', instructor: 'Libre (Senpai)', color: 'purple' },
-  { id: 7, day: 'Sábado', time: '10:00 – 12:00', group: 'Keiko abierto', level: 'Todos los niveles', instructor: 'Rotatorio', color: 'teal' },
+  { id: 1, day: 'Lunes', time: '19:30 – 21:00', group: 'General', color: 'blue' },
+  { id: 2, day: 'Miércoles', time: '19:30 – 21:00', group: 'Avanzado', color: 'orange' },
+  { id: 3, day: 'Viernes', time: '19:30 – 21:00', group: 'General', color: 'blue' },
+  { id: 4, day: 'Sábado', time: '10:00 – 11:30', group: 'Avanzado', color: 'orange' },
 ]
 
 const whatToBring = [

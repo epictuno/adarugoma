@@ -6,6 +6,7 @@ import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
 import '@mdi/font/css/materialdesignicons.css'
 import 'vuetify/styles'
+//import './styles/global.css'
 
 const vuetify = createVuetify({
   components,
@@ -18,9 +19,9 @@ const vuetify = createVuetify({
     themes: {
       light: {
         colors: {
-          primary: '#1A237E',
-          secondary: '#283593',
-          accent: '#3949AB',
+          primary: '#C62828',
+          secondary: '#B71C1C',
+          accent: '#E53935',
           background: '#FAFAFA',
           surface: '#FFFFFF',
           'on-primary': '#FFFFFF',

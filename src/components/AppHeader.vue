@@ -15,32 +15,21 @@
             </v-btn>
           </template>
           <v-list density="compact" min-width="240">
-              <v-list-item
-                v-for="item in interestedMenu"
-                :key="item.to"
-                :to="item.to"
-                :title="item.label"
-              >
-                <template #prepend>
-                  <v-img v-if="item.image" :src="item.image" alt="" width="28" height="28" contain class="mr-2 rounded" />
-                  <v-icon v-else>{{ item.icon }}</v-icon>
-                </template>
-              </v-list-item>
+            <v-list-item v-for="item in interestedMenu" :key="item.to" :to="item.to" :title="item.label">
+              <template #prepend>
+                <v-img v-if="item.image" :src="item.image" alt="" width="28" height="28" contain class="mr-2 rounded" />
+                <v-icon v-else>{{ item.icon }}</v-icon>
+              </template>
+            </v-list-item>
           </v-list>
         </v-menu>
-     </div>
+      </div>
 
       <!-- Center: Inicio -->
       <div class="nav-cell nav-center">
         <v-btn to="/" variant="text" color="white" size="large" class="font-weight-bold d-flex align-center">
-          <v-img
-            src="/images/gallery/logoAdarugoma.png"
-            alt="Logo Adarugoma"
-            width="32"
-            height="32"
-            contain
-            class="mr-3 rounded"
-          />
+          <v-img src="/images/gallery/logoAdarugoma.png" alt="Logo Adarugoma" width="32" height="32" contain
+            class="mr-3 rounded" />
           <span>Adarugoma Kendo Club</span>
         </v-btn>
       </div>
@@ -54,17 +43,12 @@
             </v-btn>
           </template>
           <v-list density="compact" min-width="240">
-              <v-list-item
-                v-for="item in aboutMenu"
-                :key="item.to"
-                :to="item.to"
-                :title="item.label"
-              >
-                <template #prepend>
-                  <v-img v-if="item.image" :src="item.image" alt="" width="28" height="28" contain class="mr-2 rounded" />
-                  <v-icon v-else>{{ item.icon }}</v-icon>
-                </template>
-              </v-list-item>
+            <v-list-item v-for="item in aboutMenu" :key="item.to" :to="item.to" :title="item.label">
+              <template #prepend>
+                <v-img v-if="item.image" :src="item.image" alt="" width="28" height="28" contain class="mr-2 rounded" />
+                <v-icon v-else>{{ item.icon }}</v-icon>
+              </template>
+            </v-list-item>
           </v-list>
         </v-menu>
       </div>
@@ -79,13 +63,8 @@
       <v-list-item prepend-icon="mdi-home" title="Inicio" to="/" @click="drawer = false" />
       <v-divider class="my-1" />
       <v-list-subheader>¿Interesado?</v-list-subheader>
-      <v-list-item
-        v-for="item in interestedMenu"
-        :key="item.to"
-        :title="item.label"
-        :to="item.to"
-        @click="drawer = false"
-      >
+      <v-list-item v-for="item in interestedMenu" :key="item.to" :title="item.label" :to="item.to"
+        @click="drawer = false">
         <template #prepend>
           <v-img v-if="item.image" :src="item.image" alt="" width="28" height="28" contain class="mr-2 rounded" />
           <v-icon v-else>{{ item.icon }}</v-icon>
@@ -93,13 +72,7 @@
       </v-list-item>
       <v-divider class="my-1" />
       <v-list-subheader>Acerca de nosotros</v-list-subheader>
-      <v-list-item
-        v-for="item in aboutMenu"
-        :key="item.to"
-        :title="item.label"
-        :to="item.to"
-        @click="drawer = false"
-      >
+      <v-list-item v-for="item in aboutMenu" :key="item.to" :title="item.label" :to="item.to" @click="drawer = false">
         <template #prepend>
           <v-img v-if="item.image" :src="item.image" alt="" width="28" height="28" contain class="mr-2 rounded" />
           <v-icon v-else>{{ item.icon }}</v-icon>
@@ -117,9 +90,9 @@ type MenuItem = { to: string; label: string; icon?: string; image?: string }
 const drawer = ref(false)
 
 const interestedMenu: MenuItem[] = [
-  { to: '/entrenamientos', label: 'Entrenamientos y horarios', icon: 'mdi-calendar-clock', image: '/images/gallery/iconoKendo.jpeg' },
-  { to: '/noticias', label: 'Noticias y Eventos', icon: 'mdi-newspaper' },
-  { to: '/que-es-el-kendo', label: '¿Qué es el Kendo?', icon: 'mdi-sword', image: '/images/gallery/espadaMadera.jpeg' },
+  { to: '/entrenamientos', label: 'Entrenamientos y horarios', icon: 'mdi-calendar-clock', image: '/images/gallery/iconoKendo.png' },
+  { to: '/noticias', label: 'Noticias y Eventos', icon: 'mdi-newspaper', image: '/images/gallery/calendarioKendo.png' },
+  { to: '/que-es-el-kendo', label: '¿Qué es el Kendo?', icon: 'mdi-sword', image: '/images/gallery/espadaMadera.png' },
 ]
 
 const aboutMenu: MenuItem[] = [

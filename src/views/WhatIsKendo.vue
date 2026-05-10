@@ -4,7 +4,7 @@
       <v-col cols="12" md="10">
         <!-- Page Header -->
         <div class="text-center mb-10">
-          <v-img src="/images/gallery/espadaMadera.jpeg" alt="Adarugoma" width="64" height="64" contain class="mb-4 mx-auto" />
+          <v-img src="/images/gallery/espadaMadera.png" alt="Adarugoma" width="64" height="64" contain class="mb-4 mx-auto" />
           <h1 class="text-h3 font-weight-bold text-primary mb-3">¿Qué es el Kendo?</h1>
           <v-divider class="mx-auto mt-4" style="max-width: 80px; border-color: #1A237E; border-width: 3px;" />
         </div>
@@ -113,12 +113,12 @@ const history = [
 ]
 
 const equipment = [
-  { icon: 'mdi-sword', name: 'Shinai', japanese: '竹刀', desc: 'Espada de bambú utilizada para el entrenamiento y la competición de forma segura.', color: 'brown-darken-1', image: '/images/gallery/espadaMadera.jpeg' },
-  { icon: 'mdi-hard-hat', name: 'Men', japanese: '面', desc: 'Casco de protección que cubre la cabeza, la cara y la garganta del kendoka.', color: 'blue-darken-4', image: '/images/gallery/casco.jpeg' },
-  { icon: 'mdi-shield', name: 'Dō', japanese: '胴', desc: 'Protector del torso que cubre el pecho y el abdomen.', color: 'blue-darken-4', image: '/images/gallery/proteccion.jpeg' },
-  { icon: 'mdi-hand-back-right', name: 'Kote', japanese: '小手', desc: 'Guanteletes acolchados que protegen las manos y las muñecas.', color: 'green-darken-2', image: '/images/gallery/guantes.jpeg' },
-  { icon: 'mdi-tshirt-crew', name: 'Tare', japanese: '垂れ', desc: 'Protección para la cintura y las caderas, parte del bogu.', color: 'brown-darken-1', image: '/images/gallery/falda.jpeg' },
-  { icon: 'mdi-human-male-female', name: 'Hakama', japanese: '袴', desc: 'Prenda tradicional tipo falda-pantalón usada sobre el keikogi; representa formalidad y elegancia en la vestimenta del kendoka.', color: 'brown-darken-1', image: '/images/gallery/faldaEstasi.jpeg' },
+  { icon: 'mdi-sword', name: 'Shinai', japanese: '竹刀', desc: 'Espada de bambú utilizada para el entrenamiento y la competición de forma segura.', color: 'brown-darken-1', image: '/images/gallery/espadaMadera.png' },
+  { icon: 'mdi-hard-hat', name: 'Men', japanese: '面', desc: 'Casco de protección que cubre la cabeza, la cara y la garganta del kendoka.', color: 'blue-darken-4', image: '/images/gallery/casco.png' },
+  { icon: 'mdi-shield', name: 'Dō', japanese: '胴', desc: 'Protector del torso que cubre el pecho y el abdomen.', color: 'blue-darken-4', image: '/images/gallery/placa.png' },
+  { icon: 'mdi-hand-back-right', name: 'Kote', japanese: '小手', desc: 'Guanteletes acolchados que protegen las manos y las muñecas.', color: 'green-darken-2', image: '/images/gallery/guantes.png' },
+  { icon: 'mdi-tshirt-crew', name: 'Tare', japanese: '垂れ', desc: 'Protección para la cintura y las caderas, parte del bogu.', color: 'brown-darken-1', image: '/images/gallery/falda.png' },
+  { icon: 'mdi-human-male-female', name: 'Hakama', japanese: '袴', desc: 'Prenda tradicional tipo falda-pantalón usada sobre el keikogi; representa formalidad y elegancia en la vestimenta del kendoka.', color: 'brown-darken-1', image: '/images/gallery/faldaEstasi.png' },
 ]
 
 const grades = [

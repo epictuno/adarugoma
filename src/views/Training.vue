@@ -4,7 +4,8 @@
       <v-col cols="12" md="10">
         <!-- Page Header -->
         <div class="text-center mb-10">
-          <v-img src="/images/gallery/iconoKendo.jpeg" alt="Adarugoma" width="64" height="64" contain class="mb-4 mx-auto" />
+          <v-img src="/images/gallery/iconoKendo.png" alt="Adarugoma" width="64" height="64" contain
+            class="mb-4 mx-auto" />
           <h1 class="text-h3 font-weight-bold text-primary mb-3">Entrenamientos</h1>
           <p class="text-body-1 text-grey-darken-1">
             Consulta nuestros horarios y modalidades de entrenamiento
@@ -61,7 +62,10 @@
             <v-row>
               <v-col v-for="item in whatToBring" :key="item.title" cols="12" sm="6" md="4">
                 <div class="d-flex align-center mb-3">
-                  <v-icon color="primary" class="mr-2">{{ item.icon }}</v-icon>
+                  <v-img v-if="item.image" :src="item.image" width="28" height="28" contain class="mr-3 flex-grow-0" />
+                  <v-icon v-else color="primary" class="mr-2">
+                    {{ item.icon }}
+                  </v-icon>
                   <div>
                     <div class="font-weight-medium">{{ item.title }}</div>
                     <div class="text-body-2 text-grey-darken-1">{{ item.desc }}</div>
@@ -91,11 +95,41 @@ const schedule = [
 ]
 
 const whatToBring = [
-  { icon: 'mdi-tshirt-crew', title: 'Ropa cómoda', desc: 'Para las primeras clases, ropa deportiva holgada' },
-  { icon: 'mdi-water', title: 'Agua', desc: 'Botella de agua para mantenerse hidratado' },
-  { icon: 'mdi-shoe-sneaker', title: 'Pies descalzos', desc: 'No se usan calzado en el tatami' },
-  { icon: 'mdi-sword', title: 'Shinai', desc: 'Lo proporcionamos durante las primeras sesiones' },
-  { icon: 'mdi-head-cog', title: 'Actitud positiva', desc: 'Lo más importante es la disposición para aprender' },
-  { icon: 'mdi-medical-bag', title: 'Equipo (bogu)', desc: 'Se adquiere una vez superado el período de iniciación' },
+  {
+    icon: 'mdi-tshirt-crew',
+    image: '/images/gallery/training/ropa.png',
+    title: 'Ropa cómoda',
+    desc: 'Para las primeras clases, ropa deportiva holgada',
+  },
+  {
+    icon: 'mdi-water',
+    image: '/images/gallery/training/agua.png',
+    title: 'Agua',
+    desc: 'Botella de agua para mantenerse hidratado',
+  },
+  {
+    icon: 'mdi-shoe-sneaker',
+    title: 'Pies descalzos',
+    image: '/images/gallery/training/pies.png',
+    desc: 'No se usa calzado en el tatami',
+  },
+  {
+    icon: 'mdi-sword',
+    image: '/images/gallery/training/espadaMadera.png',
+    title: 'Shinai',
+    desc: 'Lo proporcionamos durante las primeras sesiones',
+  },
+  {
+    icon: 'mdi-head-cog',
+    title: 'Actitud positiva',
+    image: '/images/gallery/training/actitud.png',
+    desc: 'Lo más importante es la disposición para aprender',
+  },
+  {
+    icon: 'mdi-medical-bag',
+    image: '/images/gallery/training/placa.png',
+    title: 'Equipo (bogu)',
+    desc: 'Se adquiere una vez superado el período de iniciación',
+  },
 ]
 </script>

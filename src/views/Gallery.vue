@@ -73,132 +73,128 @@ interface GalleryItem {
   category: string
   date: string
   image: string
+  dateValue: Date
   fallbackColor: string
   description: string
 }
 
-const categories = ['Todos', 'Entrenamientos', 'Competiciones', 'Eventos', 'Seminarios', 'Redes sociales']
+const categories = ['Todos', 'Entrenamientos', 'Competiciones', 'Eventos', 'Seminarios', 'Miembros']
 const selectedCategory = ref('Todos')
 const dialog = ref(false)
 const selected = ref<GalleryItem | null>(null)
-
 const galleryItems: GalleryItem[] = [
- {
+  {
     id: 1,
-    title: 'Entrenamiento matutino de sábado',
-    category: 'Entrenamientos',
-    date: 'Marzo 2024',
-    image: '/images/gallery/training.svg',
+    title: 'Los fundadores',
+    category: 'Miembros',
+    date: 'Septiembre 2025',
+    dateValue: new Date(2025, 8, 1),
+    image: '/images/gallery/elEquipo.jpeg',
     fallbackColor: 'primary',
-    description: 'Keiko abierto del sábado por la mañana con participación de todos los niveles del dojo.',
+    description: 'Empezando un nuevo curso.',
   },
   {
     id: 2,
-    title: 'Campeonato Regional 2024',
-    category: 'Competiciones',
+    title: 'Inauguración del club',
+    category: 'Miembros',
     date: 'Febrero 2024',
-    image: '/images/gallery/competition.svg',
+    dateValue: new Date(2024, 1, 1),
+    image: '/images/gallery/Elequipov2.jpeg',
     fallbackColor: 'red-darken-2',
-    description: 'Nuestros kenshi participaron en el campeonato regional obteniendo excelentes resultados.',
+    description: 'Fernando, Naira, Taco y Sami.',
   },
   {
     id: 3,
-    title: 'Seminario con Sensei Okamoto',
-    category: 'Seminarios',
-    date: 'Enero 2024',
-    image: '/images/gallery/seminar.svg',
+    title: 'Ji-geiko sábado',
+    category: 'Entrenamientos',
+    date: '18 Abril 2026',
+    dateValue: new Date(2026, 3, 18),
+    image: '/images/gallery/entre1.jpeg',
     fallbackColor: 'secondary',
-    description: 'Intenso seminario de dos días impartido por Sensei Okamoto, 7.º Dan del Japón.',
+    description: 'Ehan vs Sao, Fernando vs Naira.',
   },
   {
     id: 4,
-    title: 'Exhibición en la Feria del Deporte',
-    category: 'Eventos',
-    date: 'Septiembre 2023',
-    image: '/images/gallery/event.svg',
+    title: 'Ji-geiko sábado',
+    category: 'Entrenamientos',
+    date: '18 Abril 2026',
+    dateValue: new Date(2026, 3, 18),
+    image: '/images/gallery/entre2.jpeg',
     fallbackColor: 'green-darken-2',
-    description: 'El club realizó una exhibición de Kendo y Kata en la Feria Municipal del Deporte.',
+    description: 'Chudan frente a nito.',
   },
   {
     id: 5,
-    title: 'Exámenes de grado',
-    category: 'Eventos',
-    date: 'Junio 2023',
-    image: '/images/gallery/event.svg',
-    fallbackColor: 'orange-darken-2',
-    description: 'Varios miembros del club superaron con éxito sus exámenes de ascenso de grado.',
+    title: 'Ji-geido sábado',
+    category: 'Entrenamientos',
+    date: 'Abril 2026',
+    dateValue: new Date(2026, 3, 1),
+    image: '/images/gallery/entre4.jpeg',
+    fallbackColor: 'blue-darken-2',
+    description: 'Ethan vs Sao, Fernando vs Naira 2.',
   },
-  /*
   {
     id: 6,
-    title: 'Entrenamiento de Kata',
+    title: 'Practicando tsuba-seriae',
     category: 'Entrenamientos',
-    date: 'Mayo 2023',
-    image: '/images/gallery/training.svg',
+    date: 'Septiembre 2025',
+    dateValue: new Date(2025, 8, 1),
+    image: '/images/gallery/entreSep25.jpeg',
     fallbackColor: 'blue-darken-2',
-    description: 'Sesión especial dedicada a la práctica de los Nihon Kendo Kata con toda la escuela.',
+    description: 'Entrenamiento base.',
   },
   {
     id: 7,
-    title: 'Torneo Infantil y Juvenil',
-    category: 'Competiciones',
-    date: 'Abril 2023',
-    image: '/images/gallery/competition.svg',
-    fallbackColor: 'purple-darken-1',
-    description: 'Nuestros jóvenes kenshi demostraron su progreso en el torneo infantil y juvenil de la zona.',
+    title: 'Empezando la clase',
+    category: 'Entrenamientos',
+    date: 'Septiembre 2025',
+    dateValue: new Date(2025, 8, 1),
+    image: '/images/gallery/entreSept25-2.jpeg',
+    fallbackColor: 'blue-darken-2',
+    description: 'Entrenamiento base.',
   },
   {
     id: 8,
-    title: 'Cena de Navidad del Club',
-    category: 'Eventos',
-    date: 'Diciembre 2022',
-    image: '/images/gallery/event.svg',
-    fallbackColor: 'teal-darken-2',
-    description: 'Reunión anual de fin de año para celebrar los logros y fortalecer los vínculos del club.',
+    title: 'Ji-geiko',
+    category: 'Entrenamientos',
+    date: 'Septiembre 2025',
+    dateValue: new Date(2025, 8, 1),
+    image: '/images/gallery/entreSept25-3.jpeg',
+    fallbackColor: 'blue-darken-2',
+    description: 'Entrenamiento base.',
   },
   {
     id: 9,
-    title: 'Campamento de verano',
+    title: 'Finalizando entrenamiento',
     category: 'Entrenamientos',
-    date: 'Agosto 2022',
-    image: '/images/gallery/training.svg',
-    fallbackColor: 'amber-darken-3',
-    description: 'Campamento de verano intensivo para perfeccionar técnica y espíritu fuera del dojo habitual.',
+    date: 'Septiembre 2025',
+    dateValue: new Date(2025, 8, 1),
+    image: '/images/gallery/finalClaseSept25.jpeg',
+    fallbackColor: 'blue-darken-2',
+    description: 'Finalizando el entrenamiento.',
   },
   {
     id: 10,
-    title: 'WhatsApp – Contáctanos',
-    category: 'Redes sociales',
-    date: '',
-    image: '/images/gallery/social-whatsapp.svg',
-    fallbackColor: 'green-darken-2',
-    description: 'Escríbenos directamente por WhatsApp al +34 600 000 000 para más información sobre el club.',
+    title: 'Parte del equipo',
+    category: 'Miembros',
+    date: 'Noviembre 2025',
+    dateValue: new Date(2025, 10, 1),
+    image: '/images/gallery/noviembreEquipo.jpeg',
+    fallbackColor: 'blue-darken-2',
+    description: 'Como siempre nunca estamos todos.',
   },
-  {
-    id: 11,
-    title: 'Instagram – @adarugoma',
-    category: 'Redes sociales',
-    date: '',
-    image: '/images/gallery/social-instagram.svg',
-    fallbackColor: 'purple-darken-2',
-    description: 'Síguenos en Instagram para ver fotos de entrenamientos, competiciones y eventos del club.',
-  },
-  {
-    id: 12,
-    title: 'Twitter / X – @adarugoma',
-    category: 'Redes sociales',
-    date: '',
-    image: '/images/gallery/social-twitter.svg',
-    fallbackColor: 'grey-darken-4',
-    description: 'Síguenos en Twitter/X para noticias y actualizaciones del club en tiempo real.',
-  },*/
+
 ]
 
-const filteredItems = computed(() =>
-  selectedCategory.value === 'Todos'
-    ? galleryItems
-    : galleryItems.filter((i) => i.category === selectedCategory.value),
-)
+const filteredItems = computed(() => {
+  const items =
+    selectedCategory.value === 'Todos'
+      ? galleryItems
+      : galleryItems.filter((i) => i.category === selectedCategory.value)
+  return [...items].sort(
+    (a, b) => b.dateValue.getTime() - a.dateValue.getTime(),
+  )
+})
 
 function openLightbox(item: GalleryItem) {
   selected.value = item

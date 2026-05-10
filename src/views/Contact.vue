@@ -32,10 +32,6 @@
                         prepend-inner-icon="mdi-account-outline" density="comfortable" />
                     </v-col>
                     <v-col cols="12">
-                      <v-text-field v-model="form.email" label="Correo electrónico *" type="email" variant="outlined"
-                        :rules="[rules.required, rules.email]" prepend-inner-icon="mdi-email" density="comfortable" />
-                    </v-col>
-                    <v-col cols="12">
                       <v-text-field v-model="form.phone" label="Teléfono (opcional)" variant="outlined"
                         prepend-inner-icon="mdi-phone" density="comfortable" />
                     </v-col>
@@ -47,10 +43,6 @@
                       <v-textarea v-model="form.message" label="Mensaje *" variant="outlined"
                         :rules="[rules.required, rules.minLength]" prepend-inner-icon="mdi-message-text" rows="5"
                         density="comfortable" counter="500" maxlength="500" />
-                    </v-col>
-                    <v-col cols="12">
-                      <v-checkbox v-model="form.privacy" :rules="[rules.requiredCheck]" density="compact"
-                        label="He leído y acepto la política de privacidad *" color="primary" />
                     </v-col>
                   </v-row>
                   <v-btn type="submit" color="primary" variant="elevated" size="large" :loading="sending"
@@ -131,12 +123,21 @@ const contactInfo = [
   { icon: 'mdi-email', label: 'Correo electrónico', value: 'adarugomakendoclub@gmail.com' },
 ]
 async function submitForm() {
-  const { valid: isValid } = await formRef.value?.validate()
-  if (!isValid) return
-  sending.value = true
-  await new Promise((r) => setTimeout(r, 1200))
-  sending.value = false
-  snackbar.value = true
-  formRef.value?.reset()
+    const { valid: isValid } = await formRef.value?.validate()
+    if (!isValid) return
+    sending.value = true
+    const to = 'adarugomakendoclub@gmail.com'
+    const subject = encodeURIComponent(`[Web Adarugoma] ${form.subject}`)
+    const body = encodeURIComponent(
+      `Nombre: ${form.name}
+        Apellidos: ${form.surname || '-'}
+        Teléfono: ${form.phone || '-'}
+        Mensaje:
+        ${form.message}`
+    )
+    window.location.href = `mailto:${to}?subject=${subject}&body=${body}`
+    sending.value = false
+    snackbar.value = true
+    formRef.value?.reset()
 }
 </script>

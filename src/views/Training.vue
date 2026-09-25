@@ -89,9 +89,9 @@ const infoCards = [
 
 const schedule = [
   { id: 1, day: 'Lunes', time: '19:30 – 21:00', group: 'General', color: 'blue' },
-  { id: 2, day: 'Miércoles', time: '19:30 – 21:00', group: 'Avanzado', color: 'orange' },
+  { id: 2, day: 'Miércoles', time: '19:30 – 21:00', group: 'Prep. Examen', color: 'orange' },
   { id: 3, day: 'Viernes', time: '19:30 – 21:00', group: 'General', color: 'blue' },
-  { id: 4, day: 'Sábado', time: '10:00 – 11:30', group: 'Avanzado', color: 'orange' },
+  //{ id: 4, day: 'Sábado', time: '10:00 – 11:30', group: 'Avanzado', color: 'orange' },
 ]
 
 const whatToBring = [
